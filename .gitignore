@@ -1,0 +1,19 @@
+# Python / Django Backend
+core/__pycache__/
+shopvibe_backend/__pycache__/
+env/
+venv/
+venv_dir/
+db.sqlite3
+*.pyc
+.env
+
+# React / Frontend
+shopvibe_frontend/node_modules/
+shopvibe_frontend/dist/
+shopvibe_frontend/.env
+
+# System / OS
+.DS_Store
+Thumbs.db
+.vscode/
