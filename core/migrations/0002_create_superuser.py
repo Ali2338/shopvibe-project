@@ -4,7 +4,15 @@ from django.db import migrations
 from django.contrib.auth import get_user_model
 
 def reset_password(apps, schema_editor):
-    pass
+    User = get_user_model()
+    # Use get_or_create to prevent DoesNotExist errors
+    user, created = User.objects.get_or_create(username='admin')
+    
+    # Now you can safely set the password
+    user.set_password('YourNewSecurePassword123!')
+    user.is_superuser = True
+    user.is_staff = True
+    user.save()
 
 class Migration(migrations.Migration):
     dependencies = [('core', '0001_initial')] 
