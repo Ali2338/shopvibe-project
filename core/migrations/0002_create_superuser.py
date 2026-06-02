@@ -3,9 +3,15 @@
 from django.db import migrations
 from django.contrib.auth import get_user_model
 
-def create_superuser(apps, schema_editor):
-    pass
+def reset_password(apps, schema_editor):
+    User = get_user_model()
+    # Change the username if it is not 'admin'
+    user = User.objects.get(username='admin')
+    # Change 'YourNewSecurePassword123!' to your new desired password
+    user.set_password('YourNewSecurePassword123!') 
+    user.save()
 
 class Migration(migrations.Migration):
-    dependencies = [('core', '0001_initial')] # Make sure this matches your dependency
-    operations = [migrations.RunPython(create_superuser)]
+    # Ensure this dependency points to your latest migration file before this one
+    dependencies = [('core', '0003_add_initial_products')] 
+    operations = [migrations.RunPython(reset_password)]
