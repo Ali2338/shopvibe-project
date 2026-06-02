@@ -161,10 +161,22 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'core.CustomUser'
 
 # Security configuration allowing React frontend to fetch from this API
+# settings.py
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  
-    "http://127.0.0.1:5173",  
-    "https://shopvibe-project.vercel.app",
+    "https://shopvibe-project-tan.vercel.app",  
+    "http://localhost:5173", 
+]
+
+# Ensure these are also set correctly
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
 
 
