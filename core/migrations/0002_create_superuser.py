@@ -4,10 +4,7 @@ from django.db import migrations
 from django.contrib.auth import get_user_model
 
 def create_superuser(apps, schema_editor):
-    User = get_user_model()
-    # Ensure you don't create duplicates if it already exists
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser('admin', 'admin@example.com', 'yourpassword123')
+    pass
 
 class Migration(migrations.Migration):
     dependencies = [('core', '0001_initial')] # Make sure this matches your dependency
