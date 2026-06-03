@@ -92,13 +92,15 @@ WSGI_APPLICATION = 'shopvibe_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+IS_PRODUCTION = os.environ.get('RENDER', False)
+
 DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3', # Use SQLite locally
+        conn_max_age=600,
+        ssl_require=IS_PRODUCTION # Only require SSL on Render
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

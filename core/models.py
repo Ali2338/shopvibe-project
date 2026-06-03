@@ -58,8 +58,11 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image_url = models.URLField(max_length=500, help_text="Paste direct image URLs (e.g. Unsplash, Cloudinary)")
-    alt_text = models.CharField(max_length=150, blank=True, help_text="E.g., Front view of black t-shirt")
+    image_filename = models.CharField(max_length=255, help_text="Filename of the image in assets folder")
+    alt_text = models.CharField(max_length=150, blank=True)
+
+    def __str__(self):
+        return f"Image for {self.product.name}"
 
     def __str__(self):
         return f"Image for {self.product.name}"
