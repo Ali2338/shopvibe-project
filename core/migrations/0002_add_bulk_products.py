@@ -40,5 +40,5 @@ def add_all_products(apps, schema_editor):
 
 class Migration(migrations.Migration):
     # IMPORTANT: Ensure this matches the name of your previous migration file
-    dependencies = [('core', '0006_previous_migration_name')] 
+    dependencies = [('core', '0001_initial')] 
     operations = [migrations.RunPython(add_all_products)]
