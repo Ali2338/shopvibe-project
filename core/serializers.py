@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductImage
-        fields = ['id', 'image_url', 'alt_text']
+        fields = ['id', 'image_filename', 'alt_text']
 
 
 class CategorySerializer(serializers.ModelSerializer):
