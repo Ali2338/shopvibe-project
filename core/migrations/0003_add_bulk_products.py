@@ -10,7 +10,17 @@ def add_all_products(apps, schema_editor):
 
     cat, _ = Category.objects.get_or_create(name="Apparel")
 
-    product_data = [...] # (Keep your data list)
+    product_data = [
+        {"name": "Black Slim Jeans", "price": 49.99, "stock": 20, "filename": "black_jeans.avif", "desc": "Premium slim-fit black denim."},
+        {"name": "Black T-Shirt", "price": 19.99, "stock": 50, "filename": "black_t-shirts.avif", "desc": "Classic black cotton tee."},
+        {"name": "Check Shirt", "price": 25.00, "stock": 15, "filename": "chex_shirts.avif", "desc": "Grey and black checkered flannel."},
+        {"name": "White Hoodie Combo", "price": 35.00, "stock": 10, "filename": "complete_combo.avif", "desc": "Comfortable white hoodie."},
+        {"name": "Denim Collection", "price": 55.00, "stock": 8, "filename": "denim_collection.avif", "desc": "Durable blue denim series."},
+        {"name": "Red Jacket", "price": 60.00, "stock": 5, "filename": "jacket.avif", "desc": "Bold double-breasted red blazer."},
+        {"name": "Premium T-Shirt", "price": 22.00, "stock": 40, "filename": "premium_t-shirts.avif", "desc": "High-quality soft-touch tee."},
+        {"name": "Casual Shirt", "price": 28.00, "stock": 30, "filename": "shirts.avif", "desc": "Versatile button-down shirt."},
+        {"name": "Basic T-Shirt", "price": 15.00, "stock": 100, "filename": "t-shirts.avif", "desc": "Essential everyday basic."}
+    ]
 
     for item in product_data:
         # Create product with an explicit unique slug
