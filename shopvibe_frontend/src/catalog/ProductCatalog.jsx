@@ -149,7 +149,7 @@ const ProductCatalog = ({ onAddToCart, onProductSelect }) => {
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                         >
                             {filteredProducts.map((product) => {
-                                const dbImageName = product.images?.[0]?.image_url || "t-shirts.avif";
+                                const dbImageName = product.images?.[0]?.image_filename || "placeholder.png";
                                 const displayImg = new URL(`../assets/product_images/${dbImageName}`, import.meta.url).href;
 
                                 return (
