@@ -5,13 +5,13 @@ import { ArrowLeft, ShoppingBag, ShieldCheck, Truck, RotateCcw, Award } from 'lu
 const ProductDetail = ({ product, onBack, onAddToCart }) => {
     const images = product.images?.length > 0 
         ? product.images 
-        : [{ id: 'default', image_url: 't-shirts.avif', alt_text: product.name }];
+        : [{ id: 'default', image_filename: 't-shirts.avif', alt_text: product.name }];
     
     const resolveLocalPath = (filename) => new URL(`../assets/product_images/${filename}`, import.meta.url).href;
-    const [activeImage, setActiveImage] = useState(() => resolveLocalPath(images[0].image_url));
+    const [activeImage, setActiveImage] = useState(() => resolveLocalPath(images[0].image_filename));
 
     useEffect(() => {
-        if (images.length > 0) setActiveImage(resolveLocalPath(images[0].image_url));
+        if (images.length > 0) setActiveImage(resolveLocalPath(images[0].image_filename));
     }, [product]);
 
     return (
@@ -58,7 +58,7 @@ const ProductDetail = ({ product, onBack, onAddToCart }) => {
                         {images.length > 1 && (
                             <div className="grid grid-cols-4 gap-4">
                                 {images.map((img) => {
-                                    const localThumbUrl = resolveLocalPath(img.image_url);
+                                    const localThumbUrl = resolveLocalPath(img.image_filename);
                                     return (
                                         <button
                                             key={img.id}
