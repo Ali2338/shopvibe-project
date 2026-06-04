@@ -188,5 +188,11 @@ CORS_ALLOW_HEADERS = [
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 # The local links Stripe will redirect the user to when they finish inputting card numbers
-STRIPE_SUCCESS_URL = "http://localhost:5173/?payment=success"
-STRIPE_CANCEL_URL = "http://localhost:5173/?payment=cancelled"
+STRIPE_SUCCESS_URL = os.environ.get(
+    'STRIPE_SUCCESS_URL', 
+    'http://localhost:5173/?payment=success'
+)
+STRIPE_CANCEL_URL = os.environ.get(
+    'STRIPE_CANCEL_URL', 
+    'http://localhost:5173/?payment=cancelled'
+)
