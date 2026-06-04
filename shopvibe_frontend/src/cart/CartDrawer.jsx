@@ -11,7 +11,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemove, on
     const [error, setError] = useState('');
 
     const subtotal = cartItems.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0);
-    const resolveLocalPath = (filename) => new URL(`../assets/product_images/${filename || "t-shirts.avif"}`, import.meta.url).href;
+    const resolveLocalPath = (filename) => new URL(`../assets/product_images/${filename || ""}`, import.meta.url).href;
 
     const handleCheckoutSubmit = async (e) => {
         e.preventDefault();
@@ -88,7 +88,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemove, on
                                 <AnimatePresence initial={false}>
                                     {cartItems.map((item) => (
                                         <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={item.id} className="flex items-center gap-4 bg-white border border-neutral-200/60 p-3 rounded-xl shadow-2xs">
-                                            <img src={resolveLocalPath(item.images?.[0]?.image_url || item.image_url)} alt={item.name} className="w-16 h-20 object-cover bg-[#FAF9F5] rounded-lg border border-neutral-100 aspect-[3/4]" />
+                                            <img src={resolveLocalPath(item.images?.[0]?.image_filename || item.image_filename)} alt={item.name} className="w-16 h-20 object-cover bg-[#FAF9F5] rounded-lg border border-neutral-100 aspect-[3/4]" />
                                             <div className="flex-1 min-w-0 space-y-1">
                                                 <h4 className="text-xs font-bold text-[#1C1C1C] truncate tracking-tight uppercase font-serif">{item.name}</h4>
                                                 <p className="text-xs font-bold text-[#C85A32]">${parseFloat(item.price).toFixed(2)}</p>
